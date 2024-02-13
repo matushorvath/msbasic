@@ -16,7 +16,8 @@ SAVE:
 MONRDKEY:
 CHRIN:
                 .byte $22
-                clc
+                sec
+;                clc
                 rts
 
 
