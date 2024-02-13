@@ -15,14 +15,7 @@ SAVE:
 ; Modifies: flags, A
 MONRDKEY:
 CHRIN:
-;                lda     ACIA_STATUS
-;                and     #$08
-;                beq     @no_keypressed
-;                lda     ACIA_DATA
-;                jsr     CHROUT			; echo
-;                sec
-;                rts
-;@no_keypressed:
+                .byte $22
                 clc
                 rts
 
@@ -32,12 +25,7 @@ CHRIN:
 ; Modifies: flags
 MONCOUT:
 CHROUT:
-;                pha
-;                sta     ACIA_DATA
-;                lda     #$FF
-;@txdelay:       dec
-;                bne     @txdelay
-;                pla
+                .byte $42
                 rts
 
 ; TODO set up reset vector
