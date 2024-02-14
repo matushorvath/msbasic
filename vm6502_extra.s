@@ -1,7 +1,5 @@
 ; Inspired by https://github.com/beneater/msbasic
 
-; TODO implement
-
 LOAD:
                 rts
 
@@ -17,7 +15,6 @@ MONRDKEY:
 CHRIN:
                 .byte $22
                 sec
-;                clc
                 rts
 
 
@@ -29,10 +26,8 @@ CHROUT:
                 .byte $42
                 rts
 
-; TODO set up reset vector
-
-;.segment "RESETVEC"
-;                .word   $0F00           ; NMI vector
-;                .word   RESET           ; RESET vector
-;                .word   $0000           ; IRQ vector
+.segment "SYSVEC"
+                .word   $0000           ; NMI vector
+                .word   COLD_START      ; RESET vector
+                .word   $0000           ; IRQ vector
 
