@@ -13,7 +13,7 @@ SAVE:
 ; Modifies: flags, A
 MONRDKEY:
 CHRIN:
-                .byte $22
+                lda     $FFF0
                 sec
                 rts
 
@@ -23,7 +23,7 @@ CHRIN:
 ; Modifies: flags
 MONCOUT:
 CHROUT:
-                .byte $42
+                sta     $FFF0
                 rts
 
 .segment "SYSVEC"
